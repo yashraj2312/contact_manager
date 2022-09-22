@@ -22,11 +22,14 @@ const App =()=>{
     }
   ]
   return(
-  <div className='ui container'>
+    <div>
     <Header/>
+  <div className='ui container'>
+    
     <AddContact/>
     {/* props -- passing array of contacts i.e listOfContacts as a property (contacts) ---props are basically used pass properties of parent to child*/}
     <ContactList contacts={listOfContacts}/>
+  </div>
   </div>
   )
 }
