@@ -1,18 +1,22 @@
-import React from 'react'
-import ContactCard from './ContactCard';
+import React from "react";
+import ContactCard from "./ContactCard";
 
-// accesing props created in App js
-const ContactList =(props)=>{
-    console.log(props);
+const ContactList = (props) => {
+  console.log(props);
 
-    const showContactList = props.contacts.map((contactInfo)=>{
-        return (
-            <ContactCard contacts = {contactInfo}></ContactCard>
-        )
-    })
+  const deleteConactHandler = (id) => {
+    props.getContactId(id);
+  };
+  const renderContactList = props.contacts.map((contact) => {
     return (
-        <div className='ui celled list'>{showContactList}</div>
-    )
-}
+      <ContactCard
+        contact={contact}
+        clickHander={deleteConactHandler}
+        key={contact.id}
+      />
+    );
+  });
+  return <div className="ui celled list">{renderContactList}</div>;
+};
 
-export default ContactList
+export default ContactList;
